@@ -15,9 +15,76 @@
 <script src="./vue/product/option.js"></script>
 <script src="./vue/product/info.js"></script>
 <script>
+    // 카테고리 정보 구성
+    let cno1 = {
+        1: { text: '1-One', leaf: 'T' },
+        2: { text: '2-Two', leaf: 'T' },
+    };
+    let cno2 = {
+        1: {
+            3: { text: '1-3-A', leaf: 'T' },
+            4: { text: '1-4-B', leaf: 'T' },
+        },
+        2: {
+            5: { text: '2-5-가', leaf: 'T' },
+            6: { text: '2-6-나', leaf: 'T' },
+        },
+    };
+    let cno3 = {
+        1: {
+            3: {
+                7: { text: '1-3-7-하나', leaf: 'T' },
+                8: { text: '1-3-8-둘', leaf: 'F' },
+            },
+            4: {
+                9: { text: '1-4-9-원', leaf: 'F' },
+                10: { text: '1-4-10-투', leaf: 'F' },
+            },
+        },
+        2: {
+            5: {
+                11: { text: '2-5-11-이치', leaf: 'T' },
+                12: { text: '2-5-12니', leaf: 'F' },
+            },
+            6: {
+                13: { text: '2-6-13-$1', leaf: 'F' },
+                14: { text: '2-6-14-$2', leaf: 'F' },
+            },
+        },
+    }
+    let cno4 = {
+        1: {
+            3: {
+                7: {
+                    15: { text: '1-3-7-15-아', leaf: 'F' },
+                    16: { text: '1-3-7-16-버', leaf: 'F' },
+                    17: { text: '1-3-7-17-지', leaf: 'F' },
+                },
+            },
+        },
+        2: {
+            5: {
+                11: {
+                    18: { text: '2-5-11-18-어', leaf: 'F' },
+                    19: { text: '2-5-11-19-머', leaf: 'F' },
+                    20: { text: '2-5-11-19-니', leaf: 'F' },
+                },
+            },
+        },
+    }
+
+    // 세션 스토리지로 저장
+    sessionStorage.setItem('Prod_Cate_Large', JSON.stringify(cno1));
+    sessionStorage.setItem('Prod_Cate_Middle', JSON.stringify(cno2));
+    sessionStorage.setItem('Prod_Cate_Small', JSON.stringify(cno3));
+    sessionStorage.setItem('Prod_Cate_Detail', JSON.stringify(cno4));
+
     $(function() {
         let app = new Vue({
             el: '#app',
+            components: {
+              'prod-info' : ProdInfo,
+            },
         });
     });
 </script>
